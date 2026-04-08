@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peer2Pear - Encrypted P2P Messaging & File Sharing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-icon">&#x1F350;</span> Peer2Pear
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#features">Features</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#crypto">Security</a>
+        <a href="#team">Team</a>
+        <a href="#future">Roadmap</a>
+        <a href="https://github.com/zjones2142/Peer2Pear" target="_blank" class="nav-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="container hero-content">
+      <p class="hero-tag">// SECURE &bull; DECENTRALIZED &bull; OPEN</p>
+      <h1 class="hero-title">Peer2Pear</h1>
+      <p class="hero-subtitle">End-to-End Encrypted Peer-to-Peer<br>Messaging & File Sharing</p>
+      <div class="hero-pills">
+        <span class="pill">Qt / C++17</span>
+        <span class="pill">libsodium</span>
+        <span class="pill">Noise IK</span>
+        <span class="pill">Double Ratchet</span>
+        <span class="pill">ICE / NAT Traversal</span>
+      </div>
+      <div class="hero-actions">
+        <a href="https://github.com/zjones2142/Peer2Pear/releases" target="_blank" class="btn btn-primary">Download Latest Release</a>
+        <a href="https://github.com/zjones2142/Peer2Pear" target="_blank" class="btn btn-outline">View Source Code</a>
+      </div>
+      <p class="hero-caption">CMP_SC 4980 &bull; Senior Capstone Design II</p>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <svg width="16" height="24" viewBox="0 0 16 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="1" y="1" width="14" height="22" rx="7"/>
+        <line x1="8" y1="6" x2="8" y2="10" class="scroll-dot"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Problem / Solution -->
+  <section class="section section-dark" id="about">
+    <div class="container">
+      <div class="section-label">01 / THE PROBLEM</div>
+      <div class="two-col">
+        <div>
+          <h2 class="section-title">Centralized systems are <span class="accent">broken by design</span>.</h2>
+          <p class="section-text">Most messaging today routes through centralized servers that can log metadata, suffer outages, or be subpoenaed. A single point of failure means your conversations, files, and privacy are always at risk.</p>
+        </div>
+        <div class="problem-cards">
+          <div class="problem-card">
+            <div class="problem-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            </div>
+            <h4>Single Point of Failure</h4>
+            <p>Server outages take everyone offline</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h4>Surveillance Exposure</h4>
+            <p>Central servers can log and leak metadata</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            </div>
+            <h4>No Data Sovereignty</h4>
+            <p>Your data lives on someone else's hardware</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h4>Energy Waste</h4>
+            <p>Always-on servers burn power 24/7</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-lime" id="solution">
+    <div class="container">
+      <div class="section-label dark">OUR SOLUTION</div>
+      <h2 class="section-title dark">Peer2Pear connects you <em>directly</em>.</h2>
+      <p class="section-text dark solution-text">Peer 2 Pear is a decentralized peer-to-peer messaging application that enables secure, real-time communication without reliance on centralized servers. Every message and file is end-to-end encrypted with modern primitives from libsodium, and the relay server learns <strong>nothing</strong> about who sent what.</p>
+      <div class="solution-features">
+        <span class="pill pill-dark">Direct peer-to-peer connections</span>
+        <span class="pill pill-dark">Group chat support</span>
+        <span class="pill pill-dark">E2E encryption</span>
+        <span class="pill pill-dark">Cross-platform desktop client</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ethics -->
+  <section class="section" id="ethics">
+    <div class="container">
+      <div class="section-label">// LEGAL & ETHICAL</div>
+      <h2 class="section-title">Responsible by <span class="accent">design</span>.</h2>
+      <div class="ethics-grid">
+        <div class="ethics-card">
+          <h4>Strong Crypto Export</h4>
+          <p>End-to-end encryption is regulated in some jurisdictions; we use only open, well-audited primitives.</p>
+        </div>
+        <div class="ethics-card">
+          <h4>Misuse Potential</h4>
+          <p>Anonymity that protects journalists and dissidents can also shield bad actors. We do not implement backdoors.</p>
+        </div>
+        <div class="ethics-card">
+          <h4>User Responsibility</h4>
+          <p>Out-of-band Peer ID exchange means users own trust decisions &mdash; no central authority verifies identities.</p>
+        </div>
+        <div class="ethics-card">
+          <h4>Data Retention</h4>
+          <p>Local DB is encrypted with XChaCha20-Poly1305; passphrase loss means data loss, by design.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-label">02 / FEATURES</div>
+      <h2 class="section-title">Built for <span class="accent">privacy-first</span> communication.</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg>
+          </div>
+          <h3>End-to-End Encryption</h3>
+          <p>Every message and file is encrypted with modern libsodium primitives. Only sender and recipient can read the content.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M16 3.13a4 4 0 010 7.75"/><path d="M21 21v-2a4 4 0 00-3-3.87"/></svg>
+          </div>
+          <h3>Sealed Sender</h3>
+          <p>An ephemeral X25519 envelope hides the sender's identity from relay servers. Even the infrastructure can't see who's talking.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <h3>Group Chats</h3>
+          <p>Encrypted broadcast messaging to multiple members at once with full forward secrecy maintained per-session.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+          </div>
+          <h3>Secure File Transfer</h3>
+          <p>Send files up to 25 MB with automatic 256 KB chunking, encryption, and reassembly on the other end.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Cross-Platform</h3>
+          <p>Runs on Linux, macOS, and Windows with consistent performance. Built with Qt for native look and feel.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </div>
+          <h3>NAT Traversal</h3>
+          <p>ICE/STUN/TURN via libnice punches through firewalls for direct connections, with mailbox relay as a fallback.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture -->
+  <section class="section section-dark" id="architecture">
+    <div class="container">
+      <div class="section-label">03 / ARCHITECTURE</div>
+      <h2 class="section-title">System <span class="accent">Architecture</span></h2>
+      <div class="arch-diagram">
+        <div class="arch-node">
+          <div class="arch-node-header">CLIENT A</div>
+          <div class="arch-node-body">
+            <span>Qt UI</span>
+            <span>Double Ratchet</span>
+            <span>SQLite (encrypted)</span>
+          </div>
+        </div>
+        <div class="arch-arrow">
+          <svg width="80" height="24" viewBox="0 0 80 24" fill="none" stroke="var(--lime)" stroke-width="2">
+            <line x1="0" y1="12" x2="76" y2="12"/>
+            <polyline points="70,6 76,12 70,18"/>
+            <line x1="80" y1="12" x2="4" y2="12"/>
+            <polyline points="10,6 4,12 10,18"/>
+          </svg>
+          <span class="arch-arrow-label">P2P direct or relay</span>
+        </div>
+        <div class="arch-node arch-node-transport">
+          <div class="arch-node-header">TRANSPORT</div>
+          <div class="arch-node-body">
+            <span>ICE / NAT (libnice)</span>
+            <span>P2P direct</span>
+            <span>OR mailbox relay</span>
+          </div>
+        </div>
+        <div class="arch-arrow">
+          <svg width="80" height="24" viewBox="0 0 80 24" fill="none" stroke="var(--lime)" stroke-width="2">
+            <line x1="0" y1="12" x2="76" y2="12"/>
+            <polyline points="70,6 76,12 70,18"/>
+            <line x1="80" y1="12" x2="4" y2="12"/>
+            <polyline points="10,6 4,12 10,18"/>
+          </svg>
+          <span class="arch-arrow-label">E2E encrypted</span>
+        </div>
+        <div class="arch-node">
+          <div class="arch-node-header">CLIENT B</div>
+          <div class="arch-node-body">
+            <span>Qt UI</span>
+            <span>Double Ratchet</span>
+            <span>SQLite (encrypted)</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">Technologies</h3>
+      <div class="tech-grid">
+        <div class="tech-item">
+          <span class="tech-name">Qt 5 / Qt 6</span>
+          <span class="tech-desc">GUI & framework</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-name">C++17</span>
+          <span class="tech-desc">Application logic</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-name">libsodium</span>
+          <span class="tech-desc">Crypto primitives</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-name">libnice</span>
+          <span class="tech-desc">ICE / NAT traversal</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-name">SQLite</span>
+          <span class="tech-desc">Local encrypted storage</span>
+        </div>
+        <div class="tech-item">
+          <span class="tech-name">CMake + vcpkg</span>
+          <span class="tech-desc">Build system</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cryptography -->
+  <section class="section" id="crypto">
+    <div class="container">
+      <div class="section-label">04 / SECURITY</div>
+      <h2 class="section-title">Cryptographic <span class="accent">Primitives</span></h2>
+      <p class="section-text">Built on battle-tested, open-source cryptographic foundations. No custom crypto, no backdoors, no compromises.</p>
+
+      <div class="crypto-grid">
+        <div class="crypto-card">
+          <div class="crypto-name">Ed25519</div>
+          <div class="crypto-use">Identity keys</div>
+        </div>
+        <div class="crypto-card">
+          <div class="crypto-name">X25519</div>
+          <div class="crypto-use">ECDH agreement</div>
+        </div>
+        <div class="crypto-card">
+          <div class="crypto-name">XChaCha20-Poly1305</div>
+          <div class="crypto-use">AEAD encryption</div>
+        </div>
+        <div class="crypto-card">
+          <div class="crypto-name">BLAKE2b</div>
+          <div class="crypto-use">Hash + KDF chains</div>
+        </div>
+        <div class="crypto-card">
+          <div class="crypto-name">Argon2id</div>
+          <div class="crypto-use">Passphrase KDF</div>
+        </div>
+        <div class="crypto-card">
+          <div class="crypto-name">HKDF</div>
+          <div class="crypto-use">Sub-key derivation</div>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">Key Algorithms</h3>
+      <div class="algo-grid">
+        <div class="algo-card">
+          <div class="algo-number">01</div>
+          <h4>Noise IK Handshake</h4>
+          <p>Establishes an authenticated session and sends a fresh ratchet DH key in the very first message.</p>
+        </div>
+        <div class="algo-card">
+          <div class="algo-number">02</div>
+          <h4>Double Ratchet</h4>
+          <p>Per-message keys with forward secrecy and post-compromise security. Compromising one key reveals nothing else.</p>
+        </div>
+        <div class="algo-card">
+          <div class="algo-number">03</div>
+          <h4>Sealed Sender</h4>
+          <p>Ephemeral X25519 envelope hides sender identity from the relay. The infrastructure is cryptographically blind.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section section-dark" id="demo">
+    <div class="container">
+      <div class="section-label">05 / HOW IT WORKS</div>
+      <h2 class="section-title">From contact to <span class="accent">encrypted chat</span> in seconds.</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h4>Add a Contact</h4>
+          <p>Exchange Peer IDs and establish a Noise IK session out-of-band.</p>
+        </div>
+        <div class="step-line"></div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h4>Send a Message</h4>
+          <p>Encrypted via Double Ratchet, wrapped in a Sealed Sender envelope.</p>
+        </div>
+        <div class="step-line"></div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h4>Send a File</h4>
+          <p>Chunked into 256 KB pieces, encrypted, transmitted, and reassembled.</p>
+        </div>
+        <div class="step-line"></div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h4>Group Chat</h4>
+          <p>Encrypted broadcast to multiple members with per-session keys.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testing -->
+  <section class="section" id="testing">
+    <div class="container">
+      <div class="section-label">06 / QUALITY ASSURANCE</div>
+      <h2 class="section-title">Rigorously <span class="accent">tested</span>.</h2>
+      <div class="testing-grid">
+        <div class="test-card">
+          <div class="test-icon">&#10003;</div>
+          <h4>Unit Tests (Core Messaging Logic)</h4>
+          <p>Crypto wrappers, ratchet state transitions, serialization round-trips.</p>
+        </div>
+        <div class="test-card">
+          <div class="test-icon">&#8596;</div>
+          <h4>Integration Tests (P2P Connectivity)</h4>
+          <p>Full handshake &rarr; encrypt &rarr; relay &rarr; decrypt cycles between two clients.</p>
+        </div>
+        <div class="test-card">
+          <div class="test-icon">&#9889;</div>
+          <h4>Network Tests</h4>
+          <p>Direct P2P connections, NAT traversal scenarios, mailbox relay fallback.</p>
+        </div>
+        <div class="test-card">
+          <div class="test-icon">&#128100;</div>
+          <h4>Manual / UAT</h4>
+          <p>End-to-end smoke tests across Linux, macOS, and Windows builds.</p>
+        </div>
+      </div>
+      <div class="focus-areas">
+        <h4>Focus Areas</h4>
+        <ul>
+          <li>Cryptographic correctness vs reference test vectors</li>
+          <li>Forward secrecy after key compromise</li>
+          <li>Out-of-order and dropped message handling</li>
+          <li>File chunking & reassembly integrity</li>
+          <li>Cross-platform build verification</li>
+          <li>Memory safety</li>
+          <li>In memory testing of SQLite databases</li>
+          <li>Stress testing with multiple peers</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section section-dark" id="team">
+    <div class="container">
+      <div class="section-label">07 / TEAM</div>
+      <h2 class="section-title">Meet the <span class="accent">team</span>.</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <img class="team-photo" src="images/wyatt.jpg" alt="Zach Jones">
+          <h4>Zach Jones</h4>
+          <p class="team-role">Team Lead & Protocol</p>
+          <ul>
+            <li>libnice / ICE integration</li>
+            <li>NAT traversal logic</li>
+            <li>HTTP mailbox relay</li>
+          </ul>
+        </div>
+        <div class="team-card">
+          <img class="team-photo" src="images/collin.png" alt="Wyatt Kellett">
+          <h4>Wyatt Kellett</h4>
+          <p class="team-role">Cryptography & Protocol</p>
+          <ul>
+            <li>Noise IK handshake</li>
+            <li>Double Ratchet engine</li>
+            <li>Sealed Sender envelopes</li>
+          </ul>
+        </div>
+        <div class="team-card">
+          <img class="team-photo" src="images/joseph.jpg" alt="Joseph Mun">
+          <h4>Joseph Mun</h4>
+          <p class="team-role">UI / UX & Qt Frontend</p>
+          <ul>
+            <li>Qt Widgets interface</li>
+            <li>Contact & chat views</li>
+            <li>File transfer & Messaging UI</li>
+          </ul>
+        </div>
+        <div class="team-card">
+          <img class="team-photo" src="images/zach.png" alt="Collin Wanta">
+          <h4>Collin Wanta</h4>
+          <p class="team-role">Storage & Build System</p>
+          <ul>
+            <li>Cross-platform builds</li>
+            <li>SQLite Database Implementation</li>
+            <li>Testing & Integration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="section" id="timeline">
+    <div class="container">
+      <div class="section-label">08 / DEVELOPMENT</div>
+      <h2 class="section-title">Project <span class="accent">Timeline</span></h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Phase 1</div>
+          <div class="timeline-content">
+            <h4>Research & Planning</h4>
+            <p>Tech stack evaluation, architecture design, cryptographic protocol selection.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Phase 2</div>
+          <div class="timeline-content">
+            <h4>Crypto Core & Networking</h4>
+            <p>Implemented Noise IK handshake, Double Ratchet, and ICE/NAT traversal.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Phase 3</div>
+          <div class="timeline-content">
+            <h4>UI & Storage Integration</h4>
+            <p>Qt frontend, encrypted SQLite database, file transfer UI.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Phase 4</div>
+          <div class="timeline-content">
+            <h4>Testing & Polish</h4>
+            <p>Cross-platform testing, security validation, group chat, search functionality.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Phase 5</div>
+          <div class="timeline-content">
+            <h4>Deployment & Demo</h4>
+            <p>v0.1 build 19 &mdash; stable release with full feature set and live demonstration.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Future -->
+  <section class="section section-dark" id="future">
+    <div class="container">
+      <div class="section-label">09 / ROADMAP</div>
+      <h2 class="section-title">What's <span class="accent">next</span>.</h2>
+      <div class="future-grid">
+        <div class="future-card">
+          <div class="future-num">01</div>
+          <h4>Mobile Clients</h4>
+          <p>Port the Qt UI or build native iOS/Android frontends sharing the C++ crypto core.</p>
+        </div>
+        <div class="future-card">
+          <div class="future-num">02</div>
+          <h4>Voice & Video Calls</h4>
+          <p>Encrypted real-time media over the existing P2P transport using SRTP.</p>
+        </div>
+        <div class="future-card">
+          <div class="future-num">03</div>
+          <h4>Larger File Transfers</h4>
+          <p>Lift the 25 MB cap with resumable, chunked uploads and progress reporting.</p>
+        </div>
+        <div class="future-card">
+          <div class="future-num">04</div>
+          <h4>Federated Relays</h4>
+          <p>Multiple interoperable mailbox relays so no single operator is critical.</p>
+        </div>
+        <div class="future-card">
+          <div class="future-num">05</div>
+          <h4>Post-Quantum Crypto</h4>
+          <p>Hybrid handshakes with Kyber / ML-KEM to harden against future quantum attacks.</p>
+        </div>
+        <div class="future-card">
+          <div class="future-num">06</div>
+          <h4>Formal Verification</h4>
+          <p>Model-check the protocol state machine to prove security properties.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Download -->
+  <section class="section section-lime" id="download">
+    <div class="container cta-section">
+      <h2 class="section-title dark">Ready to take back your privacy?</h2>
+      <p class="section-text dark">Peer2Pear is open-source and free. Download the latest release or build from source.</p>
+      <div class="cta-buttons">
+        <a href="https://github.com/zjones2142/Peer2Pear/releases" target="_blank" class="btn btn-dark">Download v0.1</a>
+        <a href="https://github.com/zjones2142/Peer2Pear" target="_blank" class="btn btn-dark-outline">View on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon">&#x1F350;</span> Peer2Pear
+        <p>CMP_SC 4980 &bull; Senior Capstone Design II &bull; University of Missouri - Columbia</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/zjones2142/Peer2Pear" target="_blank">GitHub</a>
+        <a href="https://github.com/zjones2142/Peer2Pear/releases" target="_blank">Releases</a>
+        <a href="https://github.com/zjones2142/Peer2Pear/issues" target="_blank">Issues</a>
+      </div>
+      <p class="footer-copy">&copy; 2025&ndash;2026 Group Peer-To-Pear. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
