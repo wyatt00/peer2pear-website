@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | Peer2Pear</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #1a1d23;
+      --lime: #b5c327;
+      --white: #f0f0f0;
+      --gray: #9ca3af;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+    .logo { width: 100px; height: 100px; border-radius: 18px; margin-bottom: 32px; }
+    .code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(5rem, 15vw, 10rem);
+      color: var(--lime);
+      line-height: 1;
+      margin-bottom: 12px;
+      opacity: 0.3;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      margin-bottom: 12px;
+    }
+    p { color: var(--gray); font-size: 1.05rem; margin-bottom: 32px; max-width: 420px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px; border-radius: 8px; font-weight: 600;
+      font-size: 0.95rem; text-decoration: none;
+      background: var(--lime); color: var(--bg);
+      transition: all 0.25s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(181, 195, 39, 0.25); }
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem; color: var(--lime);
+      letter-spacing: 0.15em; margin-bottom: 24px;
+    }
+  </style>
+</head>
+<body>
+  <img src="images/peer2pear_icon_256.png" alt="Peer2Pear" class="logo">
+  <div class="code">404</div>
+  <h1>Page not found</h1>
+  <p class="tag">// CONNECTION_DROPPED</p>
+  <p>The peer you're looking for isn't available. It may have gone offline, or the link might be broken.</p>
+  <a href="/" class="btn">Back to Home</a>
+</body>
+</html>

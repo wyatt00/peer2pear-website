@@ -15,14 +15,26 @@ navLinks.querySelectorAll('a').forEach(link => {
   });
 });
 
+// Theme toggle
+const themeToggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+  document.documentElement.setAttribute('data-theme', savedTheme);
+}
+themeToggle.addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+});
+
 // Navbar background on scroll
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    nav.style.background = 'rgba(19, 21, 26, 0.95)';
-  } else {
-    nav.style.background = 'rgba(26, 29, 35, 0.85)';
-  }
+  const scrolled = window.scrollY > 50;
+  nav.style.background = scrolled
+    ? getComputedStyle(document.documentElement).getPropertyValue('--nav-bg-scroll').trim()
+    : getComputedStyle(document.documentElement).getPropertyValue('--nav-bg').trim();
 });
 
 // Intersection Observer for scroll animations
@@ -45,6 +57,22 @@ document.querySelectorAll('.feature-card, .crypto-card, .algo-card, .team-card, 
   el.style.animationPlayState = 'paused';
   observer.observe(el);
 });
+
+// Fetch latest release version from GitHub
+fetch('https://api.github.com/repos/zjones2142/Peer2Pear/releases/latest')
+  .then(res => res.json())
+  .then(data => {
+    const tag = data.tag_name;
+    const url = data.html_url;
+    if (tag) {
+      const label = 'Download ' + tag;
+      const heroBtn = document.getElementById('heroDownloadBtn');
+      const ctaBtn = document.getElementById('ctaDownloadBtn');
+      if (heroBtn) { heroBtn.textContent = label; heroBtn.href = url; }
+      if (ctaBtn) { ctaBtn.textContent = label; ctaBtn.href = url; }
+    }
+  })
+  .catch(() => {}); // Fallback: buttons keep default text
 
 // Smooth active nav link highlighting
 const sections = document.querySelectorAll('section[id]');

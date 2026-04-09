@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/logo.svg" alt="Peer2Pear Logo" width="200">
+  <img src="images/peer2pear_icon_256.png" alt="Peer2Pear Logo" width="200">
 </p>
 
 <h1 align="center">Peer2Pear.com</h1>
